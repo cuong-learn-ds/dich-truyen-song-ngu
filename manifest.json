@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Dịch Truyện Song Ngữ (Free)",
+  "version": "0.2.0",
+  "description": "Tự động dịch truyện chữ và truyện tranh tiếng Anh sang tiếng Việt. Miễn phí 100%.",
+  "permissions": ["storage", "offscreen", "declarativeNetRequestWithHostAccess"],
+  "optional_permissions": ["cookies"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["ocr-utils.js", "content.js", "manga.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "cross_origin_embedder_policy": { "value": "require-corp" },
+  "cross_origin_opener_policy": { "value": "same-origin" },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "action": {
+    "default_title": "Dịch Truyện Song Ngữ",
+    "default_popup": "popup.html"
+  }
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Dịch Truyện Song Ngữ</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>Dịch Truyện Song Ngữ</h1>
+
+  <label class="row">
+    <span>Bật dịch tự động</span>
+    <input type="checkbox" id="enabled">
+  </label>
+
+  <label class="row">
+    <span>Bật trên trang <b id="host">này</b></span>
+    <input type="checkbox" id="siteEnabled">
+  </label>
+
+  <label class="row">
+    <span>Tự động dịch truyện tranh (ảnh)</span>
+    <input type="checkbox" id="mangaAuto">
+  </label>
+  <label class="row">
+    <span>Dùng cookie của trang để tải ảnh (site chặn ảnh)</span>
+    <input type="checkbox" id="cookies">
+  </label>
+  <p class="hint">Mẹo: giữ <b>Alt</b> + kéo chuột khoanh vùng để dịch chỗ bất kỳ. Bấm vào bản dịch để xem ảnh gốc.</p>
+
+  <fieldset>
+    <legend>Chế độ hiển thị (truyện chữ)</legend>
+    <label><input type="radio" name="mode" value="bilingual"> Song ngữ (Anh + Việt)</label>
+    <label><input type="radio" name="mode" value="replace"> Chỉ tiếng Việt</label>
+  </fieldset>
+
+  <p id="status" class="muted"></p>
+  <button id="force" hidden>Dịch trang này</button>
+
+  <div class="row footer">
+    <span class="muted">Đã lưu: <b id="cacheCount">0</b> câu</span>
+    <button id="clear">Xoá bộ nhớ</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

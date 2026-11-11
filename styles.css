@@ -1,0 +1,79 @@
+/* Subtitle shown under each English paragraph */
+.free-translator-sub {
+  display: block;
+  margin: 0.35em 0 1em;
+  padding: 0.45em 0.75em;
+  border-left: 3px solid #3b8eea;
+  border-radius: 6px;
+  background: rgba(59, 142, 234, 0.1);
+  color: #2f7fd8;
+  font-size: inherit;
+  line-height: 1.6;
+  font-family: inherit;
+  white-space: pre-wrap;
+}
+
+.free-translator-sub.ft-loading {
+  opacity: 0.55;
+  font-style: italic;
+}
+
+/* "Chỉ tiếng Việt" mode: hide the English line, make the subtitle look like normal text */
+html.ft-mode-replace [data-translated-status="completed"] {
+  display: none !important;
+}
+html.ft-mode-replace .free-translator-sub {
+  border-left: none;
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Extension turned off: show the page as it was */
+html.ft-off .free-translator-sub {
+  display: none !important;
+}
+html.ft-off [data-translated-status="completed"] {
+  display: revert !important;
+}
+
+/* ---------- Manga / comic overlay ---------- */
+#ft-manga-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+}
+.ft-manga-box {
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 5px;
+  border-radius: 10px;
+  background: #fff;
+  color: #111;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  word-break: break-word;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
+  cursor: pointer;
+}
+.ft-manga-box.ft-manual { box-shadow: 0 0 0 2px #3b8eea, 0 1px 4px rgba(0, 0, 0, 0.25); }
+.ft-manga-box.ft-loading { opacity: 0.85; font-style: italic; font-weight: 400; }
+.ft-manga-box.ft-peek { opacity: 0.08; }
+#ft-select {
+  position: fixed;
+  z-index: 2147483001;
+  border: 2px dashed #3b8eea;
+  background: rgba(59, 142, 234, 0.15);
+  pointer-events: none;
+}
+html.ft-off #ft-manga-layer { display: none !important; }
